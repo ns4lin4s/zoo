@@ -1,0 +1,21 @@
+apiVersion: apps/v1 # Usa apps/v1beta2 para versiones anteriores a 1.9.0
+kind: Deployment
+metadata:
+  name: zoo-app
+  labels:
+    host: zoo
+spec:
+  selector:
+    matchLabels:
+      app: zoo
+  replicas: 1 # indica al controlador que ejecute 2 pods
+  template:
+    metadata:
+      labels:
+        host: zoo
+    spec:
+      containers:
+      - name: zoo-app
+        image: 573624488707.dkr.ecr.us-east-1.amazonaws.com/zoo-app:latest
+      nodeSelector:
+        host: zoo
