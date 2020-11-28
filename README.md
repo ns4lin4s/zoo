@@ -1,1 +1,3 @@
 # zoo
+
+docker-compose up
